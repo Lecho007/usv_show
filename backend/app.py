@@ -143,4 +143,4 @@ def hello():
 
 if __name__ == '__main__':
     # 容器内监听 0.0.0.0
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='172.26.47.124', port=5000, debug=True)
