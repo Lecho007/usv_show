@@ -7,7 +7,8 @@ WORKDIR /app
 COPY requirements.txt ./
 
 # 安装依赖，包括 cryptography
-RUN pip install --no-cache-dir -r requirements.txt cryptography pymysql
+RUN pip install --no-cache-dir -r requirements.txt cryptography pymysql -i https://mirrors.aliyun.com/pypi/simple/
+
 
 # 拷贝代码
 COPY . .
