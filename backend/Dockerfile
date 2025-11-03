@@ -1,17 +1,17 @@
-# 基础镜像
-FROM python:3.12
+# backend/Dockerfile
+FROM python:3.12-slim
 
-# 设置工作目录
 WORKDIR /app
 
-# 复制依赖文件
-COPY requirements.txt .
+# 拷贝 requirements.txt
+COPY requirements.txt ./
 
-# 安装依赖
-RUN pip install --no-cache-dir -r requirements.txt
+# 安装依赖，包括 cryptography
+RUN pip install --no-cache-dir -r requirements.txt cryptography pymysql
 
-# 复制整个项目
+# 拷贝代码
 COPY . .
 
-# 容器启动命令
+EXPOSE 5000
+
 CMD ["python", "app.py"]

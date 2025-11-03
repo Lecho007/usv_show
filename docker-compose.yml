@@ -1,11 +1,46 @@
 version: '3'
 services:
+  # 后端 Flask 服务
   backend:
     build: ./backend
+    container_name: usv-backend
     ports:
-      - "5000:5000"
+      - "5050:5000"   # 宿主机 5050 映射到容器 5000
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: usvuser
+      MYSQL_PASSWORD: usvpass
+      MYSQL_DATABASE: usvdb
+    depends_on:
+      - mysql
+    volumes:
+      - ./backend:/app  # 实时同步代码修改到容器
+    command: python app.py  # 确保 Flask 启动
 
+  # 前端 Vue + Nginx 服务
   frontend:
     build: ./frontend/usv_frontend
+    container_name: usv-frontend
     ports:
       - "8080:80"
+    depends_on:
+      - backend
+
+  # MySQL 数据库
+  mysql:
+    image: mysql:8.0
+    container_name: usv-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: usvdb
+      MYSQL_USER: usvuser
+      MYSQL_PASSWORD: usvpass
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
