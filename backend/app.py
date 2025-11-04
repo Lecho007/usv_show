@@ -130,7 +130,6 @@ with app.app_context():
 
 
 """ 插入 gps 数据到数据库 """
-@app.route("/api/insert_gps")
 def gps_insert(insert_gps_data):
     if not insert_gps_data:
         return jsonify({"status": "error", "message": "no data available"}), 404
@@ -265,6 +264,26 @@ def get_radar_frame(frame_id: int):
     # client.connect("mqtt.wit-motion.cn", 31883, 60)
     # client.subscribe("device/868327071852022/upload")
     # client.loop_forever()
+
+@app.route("/api/insert_gps")
+def insert_gps():
+    global radar_data
+    insert_gps_data = radar_data
+    if not insert_gps_data:
+        return jsonify({"status": "error", "message": "no data available"}), 404
+
+    pos = GpsTable(
+        utc_time=insert_gps_data.get("utc_time"),
+        latitude=insert_gps_data.get("latitude"),
+        longitude=insert_gps_data.get("longitude"),
+        fix_quality=insert_gps_data.get("fix_quality"),
+        satellites=insert_gps_data.get("satellites"),
+        altitude=insert_gps_data.get("altitude")
+    )
+    db.session.add(pos)
+    db.session.commit()
+
+    return jsonify({"status": "ok", "inserted_id": pos.id, "data": insert_gps_data})
 
 
 # 其他前端或系统 调用 /api/position → 拿到实时坐标
