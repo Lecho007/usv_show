@@ -23,7 +23,7 @@ services:
     build: ./frontend/usv_frontend
     container_name: usv-frontend
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - backend
 
