@@ -267,8 +267,8 @@ def get_radar_frame(frame_id: int):
 
 @app.route("/api/insert_gps")
 def insert_gps():
-    global radar_data
-    insert_gps_data = radar_data
+    global gps_data
+    insert_gps_data = gps_data
     if not insert_gps_data:
         return jsonify({"status": "error", "message": "no data available"}), 404
 
