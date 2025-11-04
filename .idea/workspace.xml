@@ -7,6 +7,30 @@
     <list default="true" id="dda9329c-d25e-4294-845b-93ba7ec4fe25" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/test/MS200p_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/MS200p_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/assets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/components/TheWelcome.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/components/WelcomeItem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/components/icons/IconCommunity.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/components/icons/IconDocumentation.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/components/icons/IconEcosystem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/components/icons/IconSupport.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/components/icons/IconTooling.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/vite.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +82,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/研究生项目/无人船/展示网页/usv_show/backend/mqtt",
+    "last_opened_file_path": "D:/研究生项目/无人船/展示网页/usv_show/frontend/usv_frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +94,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\研究生项目\无人船\展示网页\usv_show\frontend\usv_frontend" />
       <recent name="D:\研究生项目\无人船\展示网页\usv_show\backend\mqtt" />
       <recent name="D:\研究生项目\无人船\展示网页\usv_show\backend" />
     </key>
@@ -170,7 +195,7 @@
       <workItem from="1762143162670" duration="1713000" />
       <workItem from="1762149161424" duration="17660000" />
       <workItem from="1762180001713" duration="3283000" />
-      <workItem from="1762237458867" duration="5153000" />
+      <workItem from="1762237458867" duration="10909000" />
     </task>
     <servers />
   </component>
@@ -178,7 +203,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/usv_show$MS200p_test.coverage" NAME="MS200p_test 覆盖结果" MODIFIED="1762239568983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/test" />
+    <SUITE FILE_PATH="coverage/usv_show$MS200p_test.coverage" NAME="MS200p_test 覆盖结果" MODIFIED="1762247414452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/test" />
     <SUITE FILE_PATH="coverage/usv_show$gps_test.coverage" NAME="gps_test 覆盖结果" MODIFIED="1762163340441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/test" />
     <SUITE FILE_PATH="coverage/usv_show$app.coverage" NAME="app 覆盖结果" MODIFIED="1762152594726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>

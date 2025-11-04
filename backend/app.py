@@ -267,6 +267,14 @@ def get_position():
     else:
         return jsonify({"status": "waiting for data"}), 404
 
+# 获取最近一条 GPS 数据
+@app.route("/api/gps/last", methods=["GET"])
+def get_last_gps():
+    gps_record = GpsTable.query.order_by(GpsTable.id.desc()).first()
+    if not gps_record:
+        return jsonify({"error": "No GPS data found"}), 404
+    return jsonify(gps_record.to_dict())
+
 
 # 调用/api/radar/latest 拿到最新的雷达点云数据
 @app.route('/api/radar/latest', methods=['GET'])
