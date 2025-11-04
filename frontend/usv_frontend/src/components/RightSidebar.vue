@@ -20,7 +20,7 @@ function fetchGPS() {
     .then(res => {
       const data = res.data
       gpsData.value = res.data
-      console.log('获取到的 GPS 数据：', data)
+      // console.log('获取到的 GPS 数据：', data)
       if (data && data.latitude && data.longitude) {
         const newPos = { lng: data.longitude, lat: data.latitude }
         marker.value = newPos
@@ -63,7 +63,7 @@ function fetchRadar() {
     .then(res => {
       const data = res.data
       RadarData.value = res.data
-      console.log('获取到的 radar 数据：', data)
+      // console.log('获取到的 radar 数据：', data)
       if (data && data.points) {
         radarPoints.value = data.points
         drawRadarGrid(data.points)
