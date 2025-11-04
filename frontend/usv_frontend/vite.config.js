@@ -15,4 +15,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+    server: {
+    host: true,           // 允许外部访问
+    port: 8080,
+    proxy: {
+      '/api': {
+        target: 'http://backend:5000', // 注意这里：backend 是 Docker 服务名
+        changeOrigin: true,
+      },
+    },
+  },
 })

@@ -1,19 +1,17 @@
-# 使用 Node 镜像
-FROM node:20
-
+# 构建阶段
+FROM node:20 AS build
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
 
 COPY . .
-
-# 构建生产版本
 RUN npm run build
 
-# 使用 Nginx 提供静态文件
+# 生产阶段
 FROM nginx:alpine
-COPY --from=0 /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

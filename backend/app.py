@@ -9,20 +9,27 @@ from gps_data import parse_gga
 from datetime import timedelta
 from ms200p_data import parse_oradar_frame
 import datetime
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 # === 全局gps定位数据（模拟或来自MQTT）===
 gps_data = "$GNGGA,023634.00,4004.73871635,N,11614.19729418,E,1,28,0.7,61.0988,M,-8.4923,M,,*58"
 gps_data = parse_gga(gps_data)
 
 # === 全局激光雷达定位数据（模拟或来自MQTT）===
-radar_data = bytes([
-    0x54, 0x0C, 0xE8, 0x03, 0x10, 0x27,  # 头+点数+转速+起始角度
-    # 以下是假数据：12个点，每个3字节
-    *([0x00, 0x10, 100] * 12),
-    0x20, 0x27, 0x88, 0x13, 0x00
-])
-
+radar_data = ("54 50 00 00 00 00 00 00 00 00 AA 55 01 01 99 AF 99 AF AB 54 00 00 "
+           "AA 55 00 28 D9 AF 1F 05 34 91 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+           "00 00 00 00 00 00 00 00 00 00 00 DC 2D 00 00 00 00 1C 7C 18 7D 04 7E "
+           "34 7D 30 7C F4 7A 2C 7A 88 79 F8 78 34 78 0C 77 10 76 18 75 48 74 00"
+           " 00 A8 4E 8C 4E 18 4F BC 4F 00 00 00 00 7C 39 E4 39 00 00 48 6C AA 55"
+           " 00 22 5F 05 4D 0D AC 13 DC 6B 44 68 00 6B 50 6A C8 69 50 69 84 68 84 "
+           "67 48 67 CC 66 68 66 DC 65 84 65 44 65 BC 64 54 64 C4 63 88 63 F0 62 "
+           "24 63 7C 63 28 63 A0 61 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+           "00 00 00 00 00 00 00 AA 55 00 28 8D 0D DF 16 7C 3C 00 00 00 00 00 00 00 "
+           "00 98 5B E0 5B 40 5C 68 5C 10 5C E4 5B 80 5B 84 58 48 58 34 58 28 58 E4 "
+           "5A 80 5A 74 5A 34 5A 20 5A 1C 5A E0 59")  # 雷达数据
+radar_data= bytes.fromhex(radar_data)
 radar_data = parse_oradar_frame(radar_data)
 
 # 配置 MySQL 数据库连接
@@ -267,13 +274,39 @@ def get_position():
     else:
         return jsonify({"status": "waiting for data"}), 404
 
-# 获取最近一条 GPS 数据
+# 拿到最新的gps数据
 @app.route("/api/gps/last", methods=["GET"])
 def get_last_gps():
     gps_record = GpsTable.query.order_by(GpsTable.id.desc()).first()
     if not gps_record:
         return jsonify({"error": "No GPS data found"}), 404
     return jsonify(gps_record.to_dict())
+
+# 拿到所有的gps数据
+@app.route('/api/gps/all', methods=['GET'])
+def get_all_gps_data():
+    gps_records = GpsTable.query.order_by(GpsTable.created_at.asc()).all()
+
+    if not gps_records:
+        return jsonify({"message": "No GPS data found"}), 404
+
+    gps_list = [
+        {
+            "id": g.id,
+            "latitude": g.latitude,
+            "longitude": g.longitude,
+            "altitude": g.altitude,
+            "satellites": g.satellites,
+            "utc_time": g.utc_time,
+            "created_at": g.created_at.isoformat() if g.created_at else None
+        }
+        for g in gps_records
+    ]
+
+    return jsonify({
+        "count": len(gps_list),
+        "gps_data": gps_list
+    })
 
 
 # 调用/api/radar/latest 拿到最新的雷达点云数据
@@ -296,6 +329,38 @@ def get_latest_frame_api():
         ]
     })
 
+# 拿到所有的雷达点云数据
+@app.route('/api/radar/all', methods=['GET'])
+def get_all_radar_frames():
+    frames = RadarFrame.query.order_by(RadarFrame.created_at.asc()).all()
+
+    if not frames:
+        return jsonify({"message": "No radar data found"}), 404
+
+    result = []
+    for frame in frames:
+        frame_data = {
+            "id": frame.id,
+            "timestamp": frame.timestamp,
+            "rpm": frame.rpm,
+            "start_angle": frame.start_angle,
+            "end_angle": frame.end_angle,
+            "point_count": frame.point_count,
+            "points": [
+                {
+                    "angle": p.angle,
+                    "distance_mm": p.distance_mm,
+                    "intensity": p.intensity
+                }
+                for p in frame.points
+            ]
+        }
+        result.append(frame_data)
+
+    return jsonify({
+        "count": len(result),
+        "frames": result
+    })
 
 """ 插入点云数据api """
 @app.route("/api/insert_radar")

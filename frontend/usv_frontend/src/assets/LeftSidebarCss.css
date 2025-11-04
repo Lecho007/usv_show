@@ -1,0 +1,56 @@
+#LeftSidebar_box{
+    width: 18%;
+    height: 864px;
+    /*border: 1px solid black;*/
+    border-right: 1px solid #d8d3d3;
+}
+
+/*无人船信息盒子*/
+.usv_name_box {
+    width: 90%;
+    height: 100px;
+    margin-left: 4%;
+    /*background-color: #3B666B;*/
+    border-bottom: 1px solid #d8d3d3;
+    display: flex;
+}
+
+/*字体盒子*/
+.font_box {
+    width: 55px;
+    height: 36px;
+    /*background-color: #3B666B;*/
+    margin-top: 32px;
+    margin-left: 6px;
+    font-size: 24px;
+    color: black;
+    font-weight: 750;
+}
+
+/*状态显示圆点*/
+.state_Box{
+    width: 8px;
+    height: 8px;
+    background-color: #32AA70;
+    border-radius: 50%;
+}
+
+/*传感器盒子*/
+.sensor_box{
+    width: 90%;
+    height: 140px;
+    margin-left: 4%;
+    /*background-color: #3B666B;*/
+    border-bottom: 1px solid #d8d3d3;
+    /*display: flex;*/
+}
+
+.sensor_font_box {
+    width: 150px;
+    height: 26px;
+    /*background-color: #3B666B;*/
+    margin-top: 10px;
+    font-size: 16px;
+    color: #575555;
+    font-weight: 700;
+}
