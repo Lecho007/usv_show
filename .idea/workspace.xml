@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dda9329c-d25e-4294-845b-93ba7ec4fe25" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/test/MS200p_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/MS200p_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/usv_frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/usv_frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/usv_frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/usv_frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/usv_frontend/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/usv_frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/usv_frontend/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +179,7 @@
       <workItem from="1762143162670" duration="1713000" />
       <workItem from="1762149161424" duration="17660000" />
       <workItem from="1762180001713" duration="3283000" />
-      <workItem from="1762237458867" duration="35395000" />
+      <workItem from="1762237458867" duration="36093000" />
     </task>
     <servers />
   </component>
