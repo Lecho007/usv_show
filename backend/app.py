@@ -130,6 +130,7 @@ with app.app_context():
 
 
 """ 插入 gps 数据到数据库 """
+@app.route("/api/insert_gps")
 def gps_insert(insert_gps_data):
     if not insert_gps_data:
         return jsonify({"status": "error", "message": "no data available"}), 404
