@@ -82,7 +82,7 @@ onUnmounted(() => {
           <template #reference><el-button size="small" circle style="width: 15px;height: 15px">?</el-button></template>
         </el-popover>
       </div>
-      <div class="sensor_font_box" style="width: 250px">
+      <div class="sensor_font_box">
         型号：维特智能WTRTK-960模块
       </div>
       <!--下载按钮-->
@@ -97,7 +97,7 @@ onUnmounted(() => {
           <template #reference><el-button size="small" circle style="width: 15px;height: 15px">?</el-button></template>
         </el-popover>
       </div>
-      <div class="sensor_font_box" style="width: 250px">
+      <div class="sensor_font_box">
         型号：MS200p
       </div>
       <!--下载按钮-->

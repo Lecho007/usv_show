@@ -5,24 +5,24 @@
     border-bottom: 1px solid #d8d3d3;
 }
 
-/*标题盒子*/
-.Title_box {
-    height: 24px;
-    width: 64px;
-    /*background-color: #3B666B;*/
-    margin-left:50px;
-    margin-top: 18px;
-    font-size: 1rem;
-    font-weight: 750;
-}
+/*!*标题盒子*!*/
+/*.Title_box {*/
+/*    height: 24px;*/
+/*    width: 64px;*/
+/*    !*background-color: #3B666B;*!*/
+/*    margin-left:50px;*/
+/*    margin-top: 18px;*/
+/*    font-size: 1rem;*/
+/*    font-weight: 750;*/
+/*}*/
 
 /*英文标题盒子*/
 .Title_en_box {
     height: 24px;
     width: 80px;
     /*background-color: #3B666B;*/
-    margin-left:86%;
-    margin-top: 18px;
+    margin-left:88%;
+    margin-top: 13px;
     font-size: 1.2rem;
     font-weight: 800;
     color: #aeaeb4;

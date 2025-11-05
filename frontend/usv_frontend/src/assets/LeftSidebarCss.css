@@ -17,7 +17,7 @@
 
 /*字体盒子*/
 .font_box {
-    width: 55px;
+    width: 25%;
     height: 36px;
     /*background-color: #3B666B;*/
     margin-top: 32px;
@@ -46,7 +46,7 @@
 }
 
 .sensor_font_box {
-    width: 150px;
+    width: 90%;
     height: 26px;
     /*background-color: #3B666B;*/
     margin-top: 10px;
